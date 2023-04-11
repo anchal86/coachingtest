@@ -8,9 +8,16 @@ module.exports = {
       screens:{
         'xs':'315px',
         'mdl':'950px',
-        'mlg':'1100px'
+        'mlg':'1130px'
+      },
+      colors:{
+        cartBg:'#282a2c',
+        cartItem:'#2e3033',
+        cartTotal:'#343739'
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 }

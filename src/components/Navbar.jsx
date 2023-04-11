@@ -33,6 +33,10 @@ const Navbar = () => {
         {
             text:"Local Agents/Dealers",
             path:'/local'
+        },
+        {
+            text:"Something",
+            path:'/local'
         }
     ]
 
@@ -40,8 +44,8 @@ const Navbar = () => {
 
     return (
         <>
-            <Webmenu links={links} />
-            <div className='flex justify-end w-full mt-5 pr-5 lg:hidden'>
+            <Webmenu links={links}  />
+            <div className='flex z-10 justify-end w-full mt-5 pr-5 lg:hidden'>
                 <button className='bg-white shadow-md px-3 py-3 rounded-full text-zinc-500' onClick={()=>{
                         setOpen(true)
                     }}>

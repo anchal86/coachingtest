@@ -3,14 +3,13 @@ import {ImWhatsapp} from 'react-icons/im'
 import {motion} from 'framer-motion'
 import {FaSearch,FaShoppingBag} from 'react-icons/fa'
 import {ImUsers} from 'react-icons/im'
-import {AiOutlineHeart} from 'react-icons/ai'
 import Navbar from './Navbar'
 
 const Header = () => {
   return (
     <>
     {/* Header Top Section Starts Here */}
-        <div className='w-full flex justify-center md:justify-end bg-slate-700 h-auto py-2'>
+        <div className='w-full flex justify-center md:justify-end bg-slate-700 h-10 py-2'>
             <ul className='flex text-white gap-4 md:mr-40'>
                 <motion.li
                     className=' cursor-pointer'
@@ -44,10 +43,10 @@ const Header = () => {
 
     {/* Header Middle Section Starts Here */}
 
-        <div className='flex flex-col md:flex-row justify-center md:justify-between items-center bg-white shadow-md px-10 py-1 flex-wrap'>
+        <div className='flex flex-col md:flex-row justify-center md:justify-between items-center bg-white shadow-md px-10 py-1 flex-wrap sticky top-0 z-[100]'>
 
             <div className='flex justify-center items-center mt-2 md:mt-0'>
-                <img src="./logo.png" className='w-auto md:min-w-[100px] md:max-w-[150px] lg:w-auto' />
+                <img src="./logo.png" className='w-auto md:min-w-[100px] md:max-w-[150px] lg:w-auto' alt="Logo" />
             </div>
 
             <div className='flex justify-center items-center mt-2 md:mt-0'>

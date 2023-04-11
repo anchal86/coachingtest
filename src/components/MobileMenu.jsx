@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 const MobileMenu = ({links,close}) => {
   return (
     <div>
-        <div className='fixed inset-0 top-0 l-0 h-screen w-full backdrop-blur-sm bg-gray-500 bg-opacity-60 lg:hidden'></div>
+        <div className='fixed inset-0 z-[110] top-0 l-0 h-screen w-full backdrop-blur-sm bg-gray-500 bg-opacity-60 lg:hidden'></div>
         
-        <div className='fixed inset-0 top-0 l-0 p-5 lg:hidden'>
+        <div className='fixed inset-0 z-[300] top-0 l-0 p-5 lg:hidden'>
             <div className='w-full bg-white rounded-xl p-5'>
                 <div className='flex items-center justify-between'>
                     <h1>Navigation</h1>
@@ -27,7 +27,7 @@ const MobileMenu = ({links,close}) => {
                         )
                     })}
                 </div>
-            </div>
+            </div> 
         </div>
     </div>    
   )
