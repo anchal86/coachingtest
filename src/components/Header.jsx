@@ -3,6 +3,7 @@ import {ImWhatsapp} from 'react-icons/im'
 import {motion} from 'framer-motion'
 import {FaSearch,FaShoppingBag} from 'react-icons/fa'
 import {ImUsers} from 'react-icons/im'
+import { Link } from 'react-router-dom'
 import Navbar from './Navbar'
 
 const Header = () => {
@@ -69,9 +70,15 @@ const Header = () => {
                 <div className='flex justify-center items-center text-lg md:text-base  lg:text-lg gap-2'>
                     <ImUsers/>
                     <ul className='flex gap-2 items-center'>
-                        <li>Login</li>
+                        <motion.li className=' cursor-pointer'
+                            whileTap={{scale:0.75}}>
+                            <Link to="/sign-in">Login</Link>
+                        </motion.li>
                         <li className='w-[2px] h-5 bg-black'></li>
-                        <li>Register</li>
+                        <motion.li className=' cursor-pointer'
+                            whileTap={{scale:0.75}}>
+                            <Link to="sign-up">Register</Link>
+                        </motion.li>
                     </ul>
                 </div>
 

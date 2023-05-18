@@ -5,12 +5,15 @@ import {GrLinkedinOption} from 'react-icons/gr'
 
 const Footer =()=> {
   return (
-    <div className='flex space-between justify-around py-12 bg-[#0b090a] text-white'>
-        <div>
-            <img src="./logo.png" alt='logo' className=' cursor-pointer ' />
-        </div>
+    <div className=' bg-[#0b090a] text-white'>
 
-        <div>
+    <div className='flex justify-center items-center mb-6 border-b-2 border-white py-6'>
+        <img src="./logo.png" alt='logo' className=' cursor-pointer ' />        
+    </div>
+    <div className='xs:mx-4 md:flex space-between justify-around' >
+
+
+        <div className='xs:mb-7 md:m-auto'>
             <h1 className='text-2xl mb-4'>Support</h1>
             <div className='text-m text-gray-500 space-y-4'>
                 <p><Link to='/aboutus'>About Us</Link></p>
@@ -24,7 +27,7 @@ const Footer =()=> {
         </div>
 
 
-        <div>
+        <div className='xs:mb-7 md:m-auto'>
         <h1 className='text-2xl mb-4'>My Account</h1>
             <div className='text-m text-gray-500 space-y-4'>
                 <p><Link to='/myaccount'>Sign In</Link></p>
@@ -36,7 +39,7 @@ const Footer =()=> {
         </div>
 
 
-        <div>
+        <div className='xs:mb-7 md:m-auto'>
         <h1 className='text-2xl mb-4'>Information</h1>
             <div className='text-m text-gray-500 space-y-4'>
                 <p><Link to='/privacy-policy'>Privacy Policy</Link></p>
@@ -68,6 +71,7 @@ const Footer =()=> {
 
                 </div>
         </div>
+    </div>
     </div>
   )
 }
