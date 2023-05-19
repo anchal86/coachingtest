@@ -19,15 +19,15 @@ const Header = () => {
     <Catalogue catalogueState={showCatalogue} setShowCatalogue={setShowCatalogue}/>
     <CustomerCare ccState={showCC} setShowCC={setShowCC} />
     {/* Fixed Elements Goes Here */}
-        <div className='fixed top-1/3 left-0 z-50 cursor-pointer'>
+        <div className='fixed xs:bottom-[5%] md:top-1/3 left-0 z-50 cursor-pointer'>
             <img src="./dc.png" alt="Download Catalogue" onClick={()=>{setShowCatalogue((prevState)=>!prevState)}} />
         </div>
 
-        <div className='fixed top-[30%] right-0 z-50 cursor-pointer'>
+        <div className='fixed hidden md:block top-[30%] right-0 z-50 cursor-pointer'>
             <img src="./feedback.png" alt="Feedback" />
         </div>
 
-        <div className='fixed top-[60%] right-0 z-50 cursor-pointer'>
+        <div className='fixed xs:bottom-[10%] md:top-[60%] right-0 z-50 cursor-pointer'>
             <img src='./cC.png' alt="Customer Care"  onClick={()=>{setShowCC((prevState)=>!prevState)}} />
         </div>
     {/* Fixed Elements Ends Here */}

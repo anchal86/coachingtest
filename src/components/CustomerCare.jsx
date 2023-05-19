@@ -4,7 +4,7 @@ const CustomerCare = ({ccState,setShowCC}) => {
   return (
     <div className={`${ccState ? 'flex' :'hidden'} justify-center items-center z-[1111] backdrop-blur-[1px] h-screen w-screen fixed`}>
         
-        <div className='p-4 rounded-md border-2 bg-gray-100 w-1/2 h-1/2 relative'>
+        <div className='p-4 rounded-md border-2 bg-gray-100 md:w-1/2 md:h-1/2 xs:w-[80%] xs:h-[80%] relative'>
         <RiCloseCircleFill className="absolute -top-4 -right-2 z-50] cursor-pointer text-3xl " onClick={()=>{setShowCC(false)}} />    
             <div className='bg-gray-100 p-3 h-[100%] scroll-smooth overflow-y-scroll'>
                 <h1 className='text-xl'>Dear Valued Customer</h1>
