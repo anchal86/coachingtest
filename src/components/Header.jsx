@@ -5,10 +5,34 @@ import {FaSearch,FaShoppingBag} from 'react-icons/fa'
 import {ImUsers} from 'react-icons/im'
 import { Link } from 'react-router-dom'
 import Navbar from './Navbar'
+import Catalogue from './Catalogue'
+import CustomerCare from './CustomerCare'
+import { useState } from 'react'
 
 const Header = () => {
+
+    const [showCC, setShowCC] = useState(false)
+    const [showCatalogue, setShowCatalogue] = useState(false)
+
   return (
     <>
+    <Catalogue catalogueState={showCatalogue} setShowCatalogue={setShowCatalogue}/>
+    <CustomerCare ccState={showCC} setShowCC={setShowCC} />
+    {/* Fixed Elements Goes Here */}
+        <div className='fixed top-1/3 left-0 z-50 cursor-pointer'>
+            <img src="./dc.png" alt="Download Catalogue" onClick={()=>{setShowCatalogue((prevState)=>!prevState)}} />
+        </div>
+
+        <div className='fixed top-[30%] right-0 z-50 cursor-pointer'>
+            <img src="./feedback.png" alt="Feedback" />
+        </div>
+
+        <div className='fixed top-[60%] right-0 z-50 cursor-pointer'>
+            <img src='./cC.png' alt="Customer Care"  onClick={()=>{setShowCC((prevState)=>!prevState)}} />
+        </div>
+    {/* Fixed Elements Ends Here */}
+
+
     {/* Header Top Section Starts Here */}
         <div className='w-full flex justify-center md:justify-end bg-slate-700 h-10 py-2'>
             <ul className='flex text-white gap-4 md:mr-40'>
@@ -34,8 +58,10 @@ const Header = () => {
                     className='flex cursor-pointer'
                     whileTap={{scale:0.75}}
                 >
-                    Contact Us
-                    <ImWhatsapp className='ml-3 h-5 w-5' />
+                    <Link to="https://api.whatsapp.com/send?phone=917017944662" className='flex'>
+                        Contact Us
+                        <ImWhatsapp className='ml-3 h-5 w-5' />
+                    </Link>
                 </motion.li>
 
             </ul>
