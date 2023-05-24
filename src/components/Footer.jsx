@@ -5,7 +5,7 @@ import {GrLinkedinOption} from 'react-icons/gr'
 
 const Footer =()=> {
   return (
-    <div className=' bg-[#0b090a] text-white'>
+    <div className=' bg-[#0b090a] text-white pb-10'>
 
     <div className='flex justify-center items-center mb-6 border-b-2 border-white py-6'>
         <img src="./logo.png" alt='logo' className=' cursor-pointer ' />        
