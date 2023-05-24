@@ -6,3 +6,5 @@ export {default as SliderContainer} from './SliderContainer';
 export {default as CartContainer} from './CartContainer';
 export {default as Catalogue} from './Catalogue';
 export {default as CustomerCare} from './CustomerCare';
+export {default as Loader} from './Loader';
+export {default as PrivateRoutes} from './PrivateRoutes';

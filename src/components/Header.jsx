@@ -2,17 +2,36 @@ import React from 'react'
 import {ImWhatsapp} from 'react-icons/im'
 import {motion} from 'framer-motion'
 import {FaSearch,FaShoppingBag} from 'react-icons/fa'
+import { getAuth, onAuthStateChanged} from 'firebase/auth'
 import {ImUsers} from 'react-icons/im'
 import { Link } from 'react-router-dom'
 import Navbar from './Navbar'
 import Catalogue from './Catalogue'
 import CustomerCare from './CustomerCare'
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
+import { useLocation,useNavigate } from 'react-router-dom'
 
 const Header = () => {
 
     const [showCC, setShowCC] = useState(false)
     const [showCatalogue, setShowCatalogue] = useState(false)
+
+    const auth = getAuth()  
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const [title,setTitle]=useState('Sign In')
+
+  useEffect(()=>{
+    
+        onAuthStateChanged(auth,(user)=>{
+            if(user){
+            setTitle('Profile')
+            }else{
+            setTitle('Sign In')
+            }
+        })
+    },[auth])
 
   return (
     <>
@@ -40,7 +59,9 @@ const Header = () => {
                     className=' cursor-pointer'
                     whileTap={{scale:0.75}}
                 >
-                    My Account
+                    <Link to="/profile">
+                        My Account
+                    </Link>
                 </motion.li>
                 
                 <li className='w-[2px] h-6 bg-white'></li>
@@ -98,12 +119,7 @@ const Header = () => {
                     <ul className='flex gap-2 items-center'>
                         <motion.li className=' cursor-pointer'
                             whileTap={{scale:0.75}}>
-                            <Link to="/sign-in">Login</Link>
-                        </motion.li>
-                        <li className='w-[2px] h-5 bg-black'></li>
-                        <motion.li className=' cursor-pointer'
-                            whileTap={{scale:0.75}}>
-                            <Link to="sign-up">Register</Link>
+                            <Link to="/profile">{title}</Link>
                         </motion.li>
                     </ul>
                 </div>
