@@ -1,5 +1,5 @@
 import React from 'react'
-import {MainSlider,CategoriesDropDown,SliderContainer,CartContainer} from '../components'
+import {MainSlider,CategoriesDropDown,SliderContainer} from '../components'
 
 
 
@@ -47,7 +47,7 @@ const Home = () => {
       </section>
 
 
-      <CartContainer display={false} />
+      
     </>
   )
 }

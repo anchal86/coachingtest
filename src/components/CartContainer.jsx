@@ -4,13 +4,13 @@ import {motion} from 'framer-motion'
 import {RiRefreshFill} from 'react-icons/ri'
 import {BiMinus, BiPlus} from 'react-icons/bi'
 
-const CartContainer = ({display}) => {
+const CartContainer = ({cartState,setShowCart}) => {
   return (
-    <div className={`fixed top-0 right-0 w-full md:w-[375px] h-screen bg-white drop-shadow-md ${display?'flex':'hidden'} flex-col z-[101]`}>
+    <div className={`fixed top-0 right-0 w-full md:w-[375px] h-screen bg-white drop-shadow-md ${cartState?'flex':'hidden'} flex-col z-[101]`}>
         
         <div className='w-full flex items-center justify-between p-4 cursor-pointer'>
             <motion.div whileTap={{scale:0.75}}>
-                <MdOutlineKeyboardBackspace className='text-3xl text-slate-700' />
+                <MdOutlineKeyboardBackspace className='text-3xl text-slate-700' onClick={()=>{setShowCart(false)}} />
             </motion.div>
             <p className='text-lg font-semibold text-slate-600'>Cart</p>
 

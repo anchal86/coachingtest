@@ -9,12 +9,15 @@ import Navbar from './Navbar'
 import Catalogue from './Catalogue'
 import CustomerCare from './CustomerCare'
 import { useState, useEffect} from 'react'
+import {CartContainer} from '../components'
 import { useLocation,useNavigate } from 'react-router-dom'
 
 const Header = () => {
 
     const [showCC, setShowCC] = useState(false)
     const [showCatalogue, setShowCatalogue] = useState(false)
+    const [showCart, setShowCart] = useState(false)
+    const [showFeedback, setShowFeedback] = useState(false)
 
     const auth = getAuth()  
   const location = useLocation()
@@ -37,6 +40,8 @@ const Header = () => {
     <>
     <Catalogue catalogueState={showCatalogue} setShowCatalogue={setShowCatalogue}/>
     <CustomerCare ccState={showCC} setShowCC={setShowCC} />
+    <CartContainer cartState={showCart} setShowCart={setShowCart}/>
+    
     {/* Fixed Elements Goes Here */}
         <div className='fixed xs:bottom-[5%] md:top-1/3 left-0 z-50 cursor-pointer'>
             <img src="./dc.png" alt="Download Catalogue" onClick={()=>{setShowCatalogue((prevState)=>!prevState)}} />
@@ -126,7 +131,7 @@ const Header = () => {
 
                 <div className='flex justify-center items-center text-lg md:text-base lg:text-lg gap-2'>
                     <FaShoppingBag/>
-                    <p>Cart</p>
+                    <p onClick={()=>{setShowCart((prevState)=>!prevState)}} className="cursor-pointer">Cart</p>
                 </div>
             </div>
 
