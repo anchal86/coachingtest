@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <div className='flex w-full mlg:max-w-6xl flex-col mlg:flex-row py-9 px-4 justify-between mlg:m-auto '>
-        <MainSlider />
+        <MainSlider autoSlide={true} />
         <CategoriesDropDown />
       </div>
 

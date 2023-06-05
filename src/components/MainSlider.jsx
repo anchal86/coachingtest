@@ -1,9 +1,9 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {BsChevronCompactLeft,BsChevronCompactRight} from 'react-icons/bs'
 import {RxDotFilled} from 'react-icons/rx'
 
-const MainSlider = () => {
+const MainSlider = ({autoSlide=false,autoSlideInterval=3000}) => {
 
     const slides=[
         {
@@ -23,36 +23,33 @@ const MainSlider = () => {
         }
     ]
 
-    const [currentIndex,setCurrentIndex] = useState(0)
+    const [curr,setCurr] = useState(0)
 
-    const prevSlide = ()=>{
-        const isFirstSlide = currentIndex === 0;
-        const newIndex = isFirstSlide? slides.length-1 : currentIndex-1;
-        setCurrentIndex(newIndex)
-    }
-
-    const nextSlide = ()=>{
-        const isLastSlide = currentIndex === slides.length-1;
-        const newIndex = isLastSlide? 0 : currentIndex+1;
-        setCurrentIndex(newIndex)
-    }
+    const prev =()=>setCurr((curr)=>(curr===0 ? slides.length-1 : curr-1))
+    const next =()=>setCurr((curr)=>(curr===slides.length-1 ? 0 : curr+1))
 
     const goToSlide=(slideIndex)=>{
-        setCurrentIndex(slideIndex)
+        setCurr(slideIndex)
     }
+    useEffect(()=>{
+        if (!autoSlide) return
+
+        const slideInterval =setInterval(next,autoSlideInterval)
+        return ()=>clearInterval(slideInterval)
+    },[])
 
     return (
         <div className='mlg:max-w-3xl h-[400px] w-full m-auto relative group'>
-            <div style={{backgroundImage:`url(${slides[currentIndex].url})`}} className='w-full h-full rounded-2xl bg-center bg-cover duration-500'>
+            <div style={{backgroundImage:`url(${slides[curr].url})`}} className='w-full h-full rounded-2xl bg-center bg-cover duration-500'>
             </div>
 
             {/* Left Arrow */}
             <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-                <BsChevronCompactLeft onClick={prevSlide} size={30}/>
+                <BsChevronCompactLeft onClick={prev} size={30}/>
             </div>
             {/* Right Arrow */}
             <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-                <BsChevronCompactRight size={30} onClick={nextSlide} />
+                <BsChevronCompactRight size={30} onClick={next} />
             </div>
 
             {/* Dots Representing Images */}
@@ -64,7 +61,7 @@ const MainSlider = () => {
                         onClick={()=>goToSlide(slideIndex)}
                         className='text-2xl cursor-pointer'
                     >
-                        {currentIndex===slideIndex?<RxDotFilled className='border-2 text-red-500 border-red-600 rounded-full' />:<RxDotFilled />}
+                        {curr===slideIndex?<RxDotFilled className='border-2 text-red-500 border-red-600 rounded-full' />:<RxDotFilled />}
                     </div>
                 ))}
             </div>

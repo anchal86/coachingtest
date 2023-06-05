@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import Navbar from './Navbar'
 import Catalogue from './Catalogue'
 import CustomerCare from './CustomerCare'
+import Feedback from './Feedback'
 import { useState, useEffect} from 'react'
 import {CartContainer} from '../components'
 import { useLocation,useNavigate } from 'react-router-dom'
@@ -38,17 +39,14 @@ const Header = () => {
 
   return (
     <>
-    <Catalogue catalogueState={showCatalogue} setShowCatalogue={setShowCatalogue}/>
+    <Feedback feedbackState={showFeedback} setShowFeedback={setShowFeedback}/>
     <CustomerCare ccState={showCC} setShowCC={setShowCC} />
     <CartContainer cartState={showCart} setShowCart={setShowCart}/>
     
     {/* Fixed Elements Goes Here */}
-        <div className='fixed xs:bottom-[5%] md:top-1/3 left-0 z-50 cursor-pointer'>
-            <img src="./dc.png" alt="Download Catalogue" onClick={()=>{setShowCatalogue((prevState)=>!prevState)}} />
-        </div>
-
+       
         <div className='fixed hidden md:block top-[30%] right-0 z-50 cursor-pointer'>
-            <img src="./feedback.png" alt="Feedback" />
+            <img src="./feedback.png" alt="Feedback" onClick={()=>{setShowFeedback((prevState)=>!prevState)}} />
         </div>
 
         <div className='fixed xs:bottom-[10%] md:top-[60%] right-0 z-50 cursor-pointer'>

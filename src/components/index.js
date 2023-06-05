@@ -5,6 +5,7 @@ export {default as CategoriesDropDown} from './CategoriesDropDown';
 export {default as SliderContainer} from './SliderContainer';
 export {default as CartContainer} from './CartContainer';
 export {default as Catalogue} from './Catalogue';
+export {default as Feedback} from './Feedback';
 export {default as CustomerCare} from './CustomerCare';
 export {default as Loader} from './Loader';
 export {default as PrivateRoutes} from './PrivateRoutes';
