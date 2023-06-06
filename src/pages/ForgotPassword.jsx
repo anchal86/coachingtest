@@ -78,14 +78,19 @@ const ForgotPassword = () => {
               <Link to='/sign-in' className='font-semibold text-blue-500'>Signin Instead</Link>
             </div>
             
-            <Button title='Reset Password' back='bg-blue-600'/> 
+            <Button title='Reset Password' back='bg-green-600'/> 
             
-            <div className='flex items-center my-4 before:border-t  before:flex-1  before:border-gray-500 after:border-t after:flex-1 after:border-gray-500'>
+            <div className='flex items-center before:border-t my-4  before:flex-1  before:border-gray-500 after:border-t after:flex-1 after:border-gray-500'>
               <p className='font-bold mx-3'>OR</p>
             </div>
             
             <Button type="button" onClick={OAuth} title='Continue With Google' back='bg-red-500' pic='google' />
+
+            <div className='flex items-center before:border-t my-4  before:flex-1  before:border-gray-500 after:border-t after:flex-1 after:border-gray-500'>
+              <p className='font-bold mx-3'>OR</p>
+            </div>
             
+            <Button type="button" onClick={OAuth} title='Continue With Facebook' back='bg-blue-500' pic='facebook' />
           </form>
         </div>
       </div>
