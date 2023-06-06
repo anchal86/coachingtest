@@ -1,9 +1,11 @@
 import React from 'react'
 import {ImWhatsapp} from 'react-icons/im'
 import {motion} from 'framer-motion'
-import {FaSearch,FaShoppingBag} from 'react-icons/fa'
+import {FaSearch,FaShoppingBag,FaFacebookF} from 'react-icons/fa'
+import {AiOutlineCloseCircle,AiOutlineTwitter,AiFillLinkedin,AiOutlineInstagram,AiFillYoutube} from 'react-icons/ai'
 import { getAuth, onAuthStateChanged} from 'firebase/auth'
 import {ImUsers} from 'react-icons/im'
+import {TbWorldWww} from 'react-icons/tb'
 import { Link } from 'react-router-dom'
 import Navbar from './Navbar'
 import Catalogue from './Catalogue'
@@ -19,6 +21,7 @@ const Header = () => {
     const [showCatalogue, setShowCatalogue] = useState(false)
     const [showCart, setShowCart] = useState(false)
     const [showFeedback, setShowFeedback] = useState(false)
+    const [showIcons,setShowIcons] = useState(true)
 
     const auth = getAuth()  
   const location = useLocation()
@@ -44,13 +47,64 @@ const Header = () => {
     <CartContainer cartState={showCart} setShowCart={setShowCart}/>
     
     {/* Fixed Elements Goes Here */}
+
+        <div className='fixed xs:top-[50%]  md:top-[35%] lg:top-[30%] left-5 z-50 '>
+            <div className='flex flex-col space-y-2'>
+                <div className='cursor-pointer bg-gray-300 p-3 rounded-lg transition duration-500 ease-in'>
+                    {showIcons ? <AiOutlineCloseCircle className='text-2xl text-red-600' onClick={()=>{setShowIcons((prevState)=>!prevState)}}  /> :
+                        <TbWorldWww className='text-2xl text-slate-600' onClick={()=>{setShowIcons((prevState)=>!prevState)}}  />
+                    }
+                        
+                </div>
+
+                <div className={`${showIcons?'block':'hidden'} flex flex-col space-y-2`}>
+
+                    <div className='cursor-pointer bg-gray-300 p-3 rounded-lg'>
+                        <Link to="https://api.whatsapp.com/send?phone=917017944662">
+                            <FaFacebookF  className='text-2xl text-blue-500'  />
+                        </Link>
+                    </div>
+
+                    <div className='cursor-pointer bg-gray-300 p-3 rounded-lg'>
+                        <Link to="https://api.whatsapp.com/send?phone=917017944662">
+                            <AiOutlineTwitter className='text-2xl text-blue-600'  />
+                        </Link>
+                    </div>
+
+                    <div className='cursor-pointer bg-gray-300 p-3 rounded-lg'>
+                        <Link to="https://api.whatsapp.com/send?phone=917017944662">
+                            <AiFillLinkedin className='text-2xl text-blue-800'  />
+                        </Link>
+                    </div>
+
+                    <div className='cursor-pointer bg-gray-300 p-3 rounded-lg'>
+                        <Link to="https://api.whatsapp.com/send?phone=917017944662">
+                            <AiOutlineInstagram className='text-2xl text-red-500'  />
+                        </Link>
+                    </div>
+
+                    <div className='cursor-pointer bg-gray-300 p-3 rounded-lg'>
+                        <Link to="https://api.whatsapp.com/send?phone=917017944662">
+                            <AiFillYoutube className='text-2xl text-red-600'  />
+                        </Link>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
        
         <div className='fixed hidden md:block top-[30%] right-0 z-50 cursor-pointer'>
             <img src="./feedback.png" alt="Feedback" onClick={()=>{setShowFeedback((prevState)=>!prevState)}} />
         </div>
 
-        <div className='fixed xs:bottom-[10%] md:top-[60%] right-0 z-50 cursor-pointer'>
+        <div className='fixed xs:bottom-[15%] md:top-[60%] right-0 z-50 cursor-pointer'>
             <img src='./cC.png' alt="Customer Care"  onClick={()=>{setShowCC((prevState)=>!prevState)}} />
+        </div>
+
+        <div className='fixed xs:bottom-4 xs:right-2 md:top-[85%] md:right-14 z-50 cursor-pointer'>
+            <Link to="https://api.whatsapp.com/send?phone=917017944662" className='flex'>
+                <ImWhatsapp className='xs:text-3xl text-green-400 md:text-5xl' />
+            </Link>
         </div>
     {/* Fixed Elements Ends Here */}
 
